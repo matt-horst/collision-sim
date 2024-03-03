@@ -1,13 +1,16 @@
 #include <SDL2/SDL_video.h>
 #include <SDL2/SDL.h>
 #include "assert.hpp"
-#include "window.hpp"
+#include "screen.hpp"
+#include "simulator.hpp"
 
 
 int main() {
     ASSERT(SDL_Init(SDL_INIT_VIDEO) == 0, "SDL failed to initialize: %s\n", SDL_GetError());
 
-    Window window = Window::create("Collision-Sim", 800, 800);
+    Screen screen = {"Collision Sim", 800, 800};
+
+    Simulator sim = {32, screen.width - 100, screen.height - 100};
 
     bool quit = false;
     while (!quit) {
@@ -17,6 +20,10 @@ int main() {
                 quit = true;
             }
         }
+
+        screen.clear();
+        sim.render(screen);
+        screen.draw();
     }
 
     return EXIT_SUCCESS;
