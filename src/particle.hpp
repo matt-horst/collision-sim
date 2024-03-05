@@ -7,7 +7,7 @@
 class Particle {
 public:
     Particle(vec2<f32> position, vec2<f32> velocity, u32 radius, u32 color);
-    void draw(Screen &screen);
+    void draw(Screen &screen) const;
 
 private:
     vec2<f32> position;

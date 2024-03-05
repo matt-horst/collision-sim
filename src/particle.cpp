@@ -7,7 +7,7 @@ Particle::Particle(vec2<f32> position, vec2<f32> velocity, u32 radius, u32 color
  * Draws the particle as a circle using the Midpoint Circle Algorithm
  * https://en.wikipedia.org/w/index.php?title=Midpoint_circle_algorithm&oldid=889172082#C_example
  * */
-void Particle::draw(Screen &screen) {
+void Particle::draw(Screen &screen) const {
     int x0 = position.x;
     int y0 = position.y;
     int x = radius - 1;
